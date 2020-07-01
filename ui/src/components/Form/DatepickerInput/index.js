@@ -1,8 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-// import Datepicker from "react-date-picker";
 import Datepicker from "react-datepicker";
-import 'react-datepicker/dist/react-datepicker.css'
+import "react-datepicker/dist/react-datepicker.css";
 
 const Container = styled.div`
     margin-bottom: 15px;
@@ -13,12 +12,8 @@ const Label = styled.label`
     font-weight: 400;
 `;
 
-const StyledDatepicker = styled(Datepicker)`
-background-color: white;
-`;
 
-
-class RadioInput extends React.Component {
+class DatePickerInput extends React.Component {
     constructor (props) {
         super(props);
         this.handleChange = this.handleChange.bind(this);
@@ -28,28 +23,13 @@ class RadioInput extends React.Component {
         this.props.input.onChange(date);
     }
      
-    //onChangeHandler = date => { this.setState({ date }); }
     handleOnBlur = () => {
         // to prevent error
     };
     
-
     render() {
-        // let {input, label} = this.props;
-        // let {date} = this.state;
-        // return (
-        // <Container>
-        //     <div><Label>{label}</Label></div>
-        //     <StyledDatepicker 
-        //         {...input}
-        //         value={date}
-        //         onChange={ this.onChangeHandler }
-        //     />
-        // </Container>
-        // );
         const {
             input, placeholder,
-            meta: {touched, error},
             label, shouldDisable
         } = this.props;
       
@@ -71,4 +51,4 @@ class RadioInput extends React.Component {
     }
 }
 
-export default RadioInput;
+export default DatePickerInput;

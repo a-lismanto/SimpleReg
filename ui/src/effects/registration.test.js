@@ -26,10 +26,10 @@ describe("auth effects", () => {
         ];
     
         const form = {
-          mobile: '0361 443322',
-          firstname: 'unit',
-          lastname: 'tes',
-          email: 'unit.test@test.com'
+          mobile: "0361 443322",
+          firstname: "unit",
+          lastname: "tes",
+          email: "unit.test@test.com"
         }
         
         await store.dispatch(effects.createUser(form));
@@ -63,10 +63,10 @@ describe("auth effects", () => {
         ];
     
         const form = {
-          mobile: '0361 443322',
-          firstname: 'unit',
-          lastname: 'tes',
-          email: 'unit.test@test.com'
+          mobile: "0361 443322",
+          firstname: "unit",
+          lastname: "tes",
+          email: "unit.test@test.com"
         }
         
         await store.dispatch(effects.createUser(form));

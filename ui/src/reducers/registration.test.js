@@ -1,14 +1,14 @@
 import reducer, { initialState } from "./registration";
 import * as actions from "../actions/registration";
 
-describe('registration reducer', () => {
-    it('should have default state', () => {
+describe("registration reducer", () => {
+    it("should have default state", () => {
         const reducerInitialState = reducer(undefined, {});
     
         expect(reducerInitialState).toEqual(initialState);
     });
 
-    it('should handle registrationRequested', () => {
+    it("should handle registrationRequested", () => {
         const state = { ...initialState };
     
         const action = actions.registrationRequested();
@@ -19,7 +19,7 @@ describe('registration reducer', () => {
         expect(newState.registrationSuccess).toBe(false);
     });
 
-    it('should handle registrationSucceeded', () => {
+    it("should handle registrationSucceeded", () => {
         const state = { ...initialState };
     
         const action = actions.registrationSucceeded();
@@ -29,7 +29,7 @@ describe('registration reducer', () => {
         expect(newState.registrationSuccess).toBe(true);
     });
     
-    it('should handle registrationFailed', () => {
+    it("should handle registrationFailed", () => {
         const state = { ...initialState };
     
         const action = actions.registrationFailed([{message: "error"}]);
@@ -40,7 +40,7 @@ describe('registration reducer', () => {
         expect(newState.registrationSuccess).toBe(false);
     });
 
-    it('should handle registrationReset', () => {
+    it("should handle registrationReset", () => {
         const state = { ...initialState };
     
         const action = actions.registrationReset();

@@ -12,4 +12,4 @@ export function selectRegistrationSuccess(state) {
   
 export function selectRegistrationErrors(state) {
     return getState(state).errors;
-  }
+}

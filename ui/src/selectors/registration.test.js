@@ -1,7 +1,7 @@
-import * as selectors from './registration';
+import * as selectors from "./registration";
 import { initialState } from "../reducers/registration";
 
-describe('registration selectors', () => {
+describe("registration selectors", () => {
     function setupState(alteredState) {
         return {
             registration: {
@@ -11,8 +11,8 @@ describe('registration selectors', () => {
         };
       }
 
-    describe('selectRegistrationSubmitting', () => {
-        it('should return selectRegistrationSubmitting', () => {
+    describe("selectRegistrationSubmitting", () => {
+        it("should return selectRegistrationSubmitting", () => {
             const alteredState = {
                 registrationSubmitting: true
             };
@@ -23,8 +23,8 @@ describe('registration selectors', () => {
         });
     });
     
-    describe('selectRegistrationSuccess', () => {
-        it('should return selectRegistrationSubmitting', () => {
+    describe("selectRegistrationSuccess", () => {
+        it("should return selectRegistrationSubmitting", () => {
           const alteredState = {
               registrationSuccess: true
             };
@@ -35,8 +35,8 @@ describe('registration selectors', () => {
         });
     });
 
-    describe('selectRegistrationErrors', () => {
-        it('should return selectRegistrationSubmitting', () => {
+    describe("selectRegistrationErrors", () => {
+        it("should return selectRegistrationSubmitting", () => {
           const alteredState = {
               errors: [{message: "error"}]
             };

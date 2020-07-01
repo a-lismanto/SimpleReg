@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { reduxForm, reset } from 'redux-form';
 import styled from "styled-components";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 import RegistrationForm from '../components/RegistrationForm';
 
@@ -19,15 +19,6 @@ const Container = styled.div`
     text-align: left;
     background-color: #fafafa;
     border-radius: 2px;
-`;
-
-const StyledButton = styled.button`
-    width: 100%;
-    background-color: #9c27b0;
-    border: none;
-    border-radius: 2px;
-    color: #fff;
-    height: 44px;
 `;
 
 const StyledLink = styled(Link)`
@@ -48,7 +39,7 @@ const StyledLink = styled(Link)`
 export class RegistrationFormContainer extends React.Component {
     componentWillUnmount() {
         const { registrationReset } = this.props;
-        reset('registration');
+        reset("registration");
         registrationReset();
     }
     
@@ -94,7 +85,7 @@ const mapDispatchToProps = {
 }
 
 ConnectedRegistrationFormContainer = reduxForm({
-  form: 'registration'
+  form: "registration"
 })(ConnectedRegistrationFormContainer);
 
 export default connect(mapStateToProps, mapDispatchToProps)(ConnectedRegistrationFormContainer);

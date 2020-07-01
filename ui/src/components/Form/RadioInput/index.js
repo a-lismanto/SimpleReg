@@ -1,8 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Field } from 'redux-form';
-
-// const  { input } = React.DOM;
+import { Field } from "redux-form";
 
 const Container = styled.div`
     margin-bottom: 15px;
@@ -19,9 +17,6 @@ const OptionLabel = styled.label`
     display: inline-block; 
     font-size: 0.8rem; 
 `;
-
-
-const Radio = styled.input``;
 
 class RadioInput extends React.Component {
     renderOption(option, name, index) {

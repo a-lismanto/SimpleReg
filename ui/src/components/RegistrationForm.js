@@ -1,6 +1,6 @@
 import React from "react";
 import styled, {css} from "styled-components";
-import { Field } from 'redux-form';
+import { Field } from "redux-form";
 
 import TextInput from "./Form/TextInput"
 import RadioInput from "./Form/RadioInput";
@@ -52,11 +52,10 @@ const StyledButton = styled.button`
     `}
 `;
   
-class RegistrationForm extends React.Component {
+export class RegistrationForm extends React.Component {
 
     render() {
         const {
-            isSubmitting,
             onSave,
             shouldDisabled,
             errors
