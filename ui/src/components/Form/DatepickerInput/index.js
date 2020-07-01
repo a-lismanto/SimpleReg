@@ -4,7 +4,10 @@ import styled from "styled-components";
 import Datepicker from "react-datepicker";
 import 'react-datepicker/dist/react-datepicker.css'
 
-const Container = styled.div``;
+const Container = styled.div`
+    margin-bottom: 15px;
+`;
+
 const Label = styled.label``;
 const StyledDatepicker = styled(Datepicker)`
 background-color: white;

@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 import { reduxForm, Field } from 'redux-form';
 
 import TextInput from "./Form/TextInput"
@@ -11,12 +11,12 @@ import { required, email, indonesianPhone } from "../utils/validate";
 const StyledForm = styled.form`
     width: 600px;
     padding: 16px;
-    margin: auto;
+    margin: 40px auto 0;
     text-align: left;
-    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.25);
+    background-color: #fafafa;
+    border-radius: 2px;
 `;
 const StyledField = styled(Field)``;
-const StyledInput = styled.input``;
 
 
 export const ButtonContainer = styled.div`
@@ -25,6 +25,15 @@ export const ButtonContainer = styled.div`
 
 const StyledButton = styled.button`
     width: 100%;
+    background-color: #9c27b0;
+    border: none;
+    border-radius: 2px;
+    color: #fff;
+    height: 44px;
+
+    ${props => props.disabled && css`
+        background: #e1bfe7;
+    `}
 `;
   
 class RegistrationForm extends React.Component {
@@ -32,71 +41,66 @@ class RegistrationForm extends React.Component {
     render() {
         const {
             isSubmitting,
-            onSave
+            onSave,
+            shouldDisabled
         } = this.props;
 
 
         return (
         <StyledForm onSubmit={onSave} autocomplete="off">
-            {/* <TextInput label="firstname" placeholder="Required" type="text"/>
-            <TextInput label="firstname" placeholder="Required" type="text"/>
-            <TextInput label="lastname" placeholder="Required" type="text"/>
-            <DateInput label="lastname" />
-            <RadioInput label="gender" options={["female", "male"]} />
-            <TextInput label="email" placeholder="Required" type="text"/> */}
             <StyledField 
-                label="mobile" 
+                label="Mobile" 
                 name="mobile"
                 placeholder="Required" 
                 type="text"
                 component={TextInput}
                 // validate={[required, indonesianPhone]}
-                shouldDisable={isSubmitting}
+                shouldDisable={shouldDisabled}
             />
             <StyledField 
-                label="firstname"
+                label="Firstname"
                 name="firstname" 
                 placeholder="Required" 
                 type="text"
                 component={TextInput}
                 // validate={required}
-                shouldDisable={isSubmitting}
+                shouldDisable={shouldDisabled}
             />
             <StyledField 
-                label="lastname"
+                label="Lastname"
                 name="lastname" 
                 placeholder="Required" 
                 type="text"
                 component={TextInput}
-                //validate={required}
-                shouldDisable={isSubmitting}
+                // validate={required}
+                shouldDisable={shouldDisabled}
             />
             <StyledField 
-                label="birthday"
+                label="Date of Birth"
                 name="birthday" 
                 component={DateInput}
-                shouldDisable={isSubmitting}
+                shouldDisable={shouldDisabled}
             />
             <StyledField 
-                label="gender"
+                label="Gender"
                 name="gender" 
                 component={RadioInput}
-                options={["female", "male"]}
-                shouldDisable={isSubmitting}
+                options={["male", "female"]}
+                shouldDisable={shouldDisabled}
             />
             <StyledField 
-                label="email"
+                label="Email"
                 name="email" 
                 placeholder="Required" 
                 type="text"
                 component={TextInput}
                 // validate={[required, email]}
-                shouldDisable={isSubmitting}
+                shouldDisable={shouldDisabled}
             />
             <ButtonContainer>
                 <StyledButton
                     type="submit"
-                    disabled={isSubmitting}
+                    disabled={shouldDisabled}
                 >Register</StyledButton>
             </ButtonContainer>
         </StyledForm>

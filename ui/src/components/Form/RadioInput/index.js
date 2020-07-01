@@ -4,11 +4,15 @@ import { Field } from 'redux-form';
 
 // const  { input } = React.DOM;
 
-const Container = styled.div``;
-const Label = styled.label``;
-// const Radio = styled.input.attrs({
-//     type: 'radio',
-//   })``;
+const Container = styled.div`
+    margin-bottom: 15px;
+`;
+
+const Label = styled.label`
+    min-width: 80px;
+    display: inline-block;
+`;
+
 const Radio = styled.input``;
 
 class RadioInput extends React.Component {
@@ -21,10 +25,10 @@ class RadioInput extends React.Component {
         };
          
         return (
-            <label key={index}>
+            <Label key={index}>
                 <Field {...input} type="radio" component="input" name={label} value={option} />
-                {option}
-            </label>
+                {option[0].toUpperCase() +  option.slice(1)}
+            </Label>
         );
     }
 

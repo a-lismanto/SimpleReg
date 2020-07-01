@@ -9,7 +9,7 @@ export function createUser(form) {
     return (dispatch, getState) => {
         dispatch(registrationRequested());
 
-        later(5000).then(() => {
+        later(3000).then(() => {
             console.log("after waiting");
             console.log(form);
             dispatch(registrationSucceeded());
