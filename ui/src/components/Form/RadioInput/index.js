@@ -7,11 +7,18 @@ import { Field } from 'redux-form';
 const Container = styled.div`
     margin-bottom: 15px;
 `;
-
-const Label = styled.label`
-    min-width: 80px;
-    display: inline-block;
+const LabelContainer = styled.div`
+    margin-bottom: 4px;
 `;
+const Label = styled.label`
+    font-size: 0.9rem;
+    font-weight: 400;
+`;
+const OptionLabel = styled.label`
+    min-width: 80px;
+    display: inline-block;  
+`;
+
 
 const Radio = styled.input``;
 
@@ -25,10 +32,10 @@ class RadioInput extends React.Component {
         };
          
         return (
-            <Label key={index}>
+            <OptionLabel key={index}>
                 <Field {...input} type="radio" component="input" name={label} value={option} />
                 {option[0].toUpperCase() +  option.slice(1)}
-            </Label>
+            </OptionLabel>
         );
     }
 
@@ -36,7 +43,7 @@ class RadioInput extends React.Component {
         let {label, options} = this.props;
         return (
         <Container>
-            <div><Label>{label}</Label></div>
+            <LabelContainer><Label>{label}</Label></LabelContainer>
             {options.map((option, index) => {
                 return this.renderOption(option, label, index)
             })}

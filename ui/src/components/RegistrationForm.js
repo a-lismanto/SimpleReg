@@ -1,6 +1,6 @@
 import React from "react";
 import styled, {css} from "styled-components";
-import { reduxForm, Field } from 'redux-form';
+import { Field } from 'redux-form';
 
 import TextInput from "./Form/TextInput"
 import RadioInput from "./Form/RadioInput";
@@ -30,6 +30,8 @@ const StyledButton = styled.button`
     border-radius: 2px;
     color: #fff;
     height: 44px;
+    font-weight: 400;
+    font-size: 1rem;
 
     ${props => props.disabled && css`
         background: #e1bfe7;

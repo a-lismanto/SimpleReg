@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { reduxForm } from 'redux-form';
 import styled from "styled-components";
+import { Link } from 'react-router-dom';
 
 import RegistrationForm from '../components/RegistrationForm';
 
@@ -27,6 +28,21 @@ const StyledButton = styled.button`
     height: 44px;
 `;
 
+const StyledLink = styled(Link)`
+    width: 96.4%;
+    background-color: #9c27b0;
+    border: none;
+    border-radius: 2px;
+    color: #fff;
+    height: 22px;
+    display: inline-block;
+    text-align: center;
+    padding: 11px;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 1rem;
+`;
+
 export class RegistrationFormContainer extends React.Component {
     submit = (formValues) => {
         console.log("submit", formValues)
@@ -47,9 +63,9 @@ export class RegistrationFormContainer extends React.Component {
                 />
                 {isRegistrationSuccess && 
                     <Container>
-                        <StyledButton>
+                        <StyledLink to="/">
                             Login
-                        </StyledButton>
+                        </StyledLink>
                     </Container>
                 }
             </>

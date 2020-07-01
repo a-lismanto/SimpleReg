@@ -10,6 +10,8 @@ const LabelContainer = styled.div`
 `;
 const Label = styled.label`
     padding: 4px 0;
+    font-size: 0.9rem;
+    font-weight: 400;
 `;
 const StyledInput = styled.input`
     width: 98.6%;
