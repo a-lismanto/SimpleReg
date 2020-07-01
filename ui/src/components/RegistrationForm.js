@@ -19,8 +19,22 @@ const StyledForm = styled.form`
 const StyledField = styled(Field)``;
 
 
-export const ButtonContainer = styled.div`
+const ButtonContainer = styled.div`
   text-align: center;
+`;
+
+const FormErrorContainer = styled.div`
+    background-color: #f00;
+    color: #fff;
+    margin-bottom: 15px;
+    border-radius: 2px;
+    padding: 4px;
+`;
+
+const FormErrorLine = styled.div`
+    &:before {
+        content: "! "
+    }
 `;
 
 const StyledButton = styled.button`
@@ -44,9 +58,11 @@ class RegistrationForm extends React.Component {
         const {
             isSubmitting,
             onSave,
-            shouldDisabled
+            shouldDisabled,
+            errors
         } = this.props;
 
+        const hasError = errors && errors.length > 0;
 
         return (
         <StyledForm onSubmit={onSave} autocomplete="off">
@@ -56,7 +72,7 @@ class RegistrationForm extends React.Component {
                 placeholder="Required" 
                 type="text"
                 component={TextInput}
-                // validate={[required, indonesianPhone]}
+                validate={[required, indonesianPhone]}
                 shouldDisable={shouldDisabled}
             />
             <StyledField 
@@ -65,7 +81,7 @@ class RegistrationForm extends React.Component {
                 placeholder="Required" 
                 type="text"
                 component={TextInput}
-                // validate={required}
+                validate={required}
                 shouldDisable={shouldDisabled}
             />
             <StyledField 
@@ -74,7 +90,7 @@ class RegistrationForm extends React.Component {
                 placeholder="Required" 
                 type="text"
                 component={TextInput}
-                // validate={required}
+                validate={required}
                 shouldDisable={shouldDisabled}
             />
             <StyledField 
@@ -85,7 +101,7 @@ class RegistrationForm extends React.Component {
             />
             <StyledField 
                 label="Gender"
-                name="gender" 
+                name="gender"
                 component={RadioInput}
                 options={["male", "female"]}
                 shouldDisable={shouldDisabled}
@@ -96,9 +112,18 @@ class RegistrationForm extends React.Component {
                 placeholder="Required" 
                 type="text"
                 component={TextInput}
-                // validate={[required, email]}
+                validate={[required, email]}
                 shouldDisable={shouldDisabled}
             />
+            {hasError &&
+                <FormErrorContainer>
+                {
+                    errors.map((err, index) => {
+                        return <FormErrorLine key={index}>{err.message}</FormErrorLine>
+                    })
+                }
+            </FormErrorContainer>
+            }
             <ButtonContainer>
                 <StyledButton
                     type="submit"

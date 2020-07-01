@@ -1,6 +1,4 @@
 export const required = value => {
-    console.log("req val", value);
-    //return 'This field is required'
     const trimmedValue = (typeof value === "string") ? value.trim() : value;
     return (trimmedValue !== undefined && trimmedValue !== null && trimmedValue !== '' && trimmedValue.length > 0)
       ? undefined

@@ -8,7 +8,11 @@ const Container = styled.div`
     margin-bottom: 15px;
 `;
 
-const Label = styled.label``;
+const Label = styled.label`
+    font-size: 0.9rem;
+    font-weight: 400;
+`;
+
 const StyledDatepicker = styled(Datepicker)`
 background-color: white;
 `;

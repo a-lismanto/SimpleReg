@@ -1,6 +1,6 @@
 import types from "../actions/registration";
 
-const initialState = {
+export const initialState = {
     registrationSubmitting: false,
     errors: [],
     registrationSuccess: false, 
@@ -30,6 +30,11 @@ export default (state = initialState, action) => {
                 errors: action.error,
                 registrationSuccess: false
             };
+        
+        case types.REGISTRATION_RESET:
+            return {
+                ...initialState
+            }
         
         default:
             return state;

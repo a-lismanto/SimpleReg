@@ -1,10 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
-import { reduxForm } from 'redux-form';
+import { reduxForm, reset } from 'redux-form';
 import styled from "styled-components";
 import { Link } from 'react-router-dom';
 
 import RegistrationForm from '../components/RegistrationForm';
+
+import { registrationReset } from "../actions/registration";
 
 import { selectRegistrationSubmitting, selectRegistrationSuccess, selectRegistrationErrors } from '../selectors/registration';
 
@@ -44,15 +46,19 @@ const StyledLink = styled(Link)`
 `;
 
 export class RegistrationFormContainer extends React.Component {
+    componentWillUnmount() {
+        const { registrationReset } = this.props;
+        reset('registration');
+        registrationReset();
+    }
+    
     submit = (formValues) => {
-        console.log("submit", formValues)
         const { createUser } = this.props;
         createUser(formValues);
     };
     
     render() {
         const { isSubmitting, handleSubmit, isRegistrationSuccess, registrationErrors } = this.props;
-        console.log("isSubmitting", isSubmitting);
         const shouldDisabled = isRegistrationSuccess === true ? true : isSubmitting
         return (
             <>
@@ -60,6 +66,7 @@ export class RegistrationFormContainer extends React.Component {
                     isSubmitting={isSubmitting}
                     onSave={handleSubmit(this.submit)}
                     shouldDisabled={shouldDisabled}
+                    errors={registrationErrors}
                 />
                 {isRegistrationSuccess && 
                     <Container>
@@ -82,7 +89,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
-    createUser
+    createUser,
+    registrationReset
 }
 
 ConnectedRegistrationFormContainer = reduxForm({

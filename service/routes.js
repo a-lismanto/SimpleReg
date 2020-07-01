@@ -10,5 +10,5 @@ module.exports = function(app) {
         .get(simplereg.users);
 
     app.route('/createUser')
-        .post(simplereg.createUser)
+        .post(simplereg.createUser);
 };

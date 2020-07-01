@@ -51,7 +51,7 @@ const ErrorContainer = styled.div`
 class TextInput extends React.Component {
 
     render() {
-        let {input, label, placeholder, type, meta, shouldDisable} = this.props;
+        let {input, label, placeholder, type, meta, shouldDisable, errorMsg} = this.props;
         const hasError = meta && meta.touched && meta.error;
         
         let inputParam = {
