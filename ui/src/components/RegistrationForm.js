@@ -51,6 +51,7 @@ class RegistrationForm extends React.Component {
                 type="text"
                 component={TextInput}
                 // validate={[required, indonesianPhone]}
+                shouldDisable={isSubmitting}
             />
             <StyledField 
                 label="firstname"
@@ -59,6 +60,7 @@ class RegistrationForm extends React.Component {
                 type="text"
                 component={TextInput}
                 // validate={required}
+                shouldDisable={isSubmitting}
             />
             <StyledField 
                 label="lastname"
@@ -67,23 +69,21 @@ class RegistrationForm extends React.Component {
                 type="text"
                 component={TextInput}
                 //validate={required}
+                shouldDisable={isSubmitting}
             />
             <StyledField 
                 label="birthday"
                 name="birthday" 
                 component={DateInput}
+                shouldDisable={isSubmitting}
             />
             <StyledField 
                 label="gender"
                 name="gender" 
                 component={RadioInput}
                 options={["female", "male"]}
+                shouldDisable={isSubmitting}
             />
-            {/* <label>Sex</label>
-            <div>
-            <label><Field name="sex" component="input" type="radio" value="male"/> Male</label>
-            <label><Field name="sex" component="input" type="radio" value="female"/> Female</label>
-            </div> */}
             <StyledField 
                 label="email"
                 name="email" 
@@ -91,10 +91,12 @@ class RegistrationForm extends React.Component {
                 type="text"
                 component={TextInput}
                 // validate={[required, email]}
+                shouldDisable={isSubmitting}
             />
             <ButtonContainer>
                 <StyledButton
                     type="submit"
+                    disabled={isSubmitting}
                 >Register</StyledButton>
             </ButtonContainer>
         </StyledForm>

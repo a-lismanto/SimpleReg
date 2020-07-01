@@ -26,6 +26,7 @@ export class RegistrationFormContainer extends React.Component {
     
     render() {
         const { isSubmitting, handleSubmit } = this.props;
+        console.log("isSubmitting", isSubmitting);
     
         return (
           <RegistrationForm

@@ -43,7 +43,7 @@ class RadioInput extends React.Component {
         const {
             input, placeholder,
             meta: {touched, error},
-            label
+            label, shouldDisable
         } = this.props;
       
         return (
@@ -55,7 +55,7 @@ class RadioInput extends React.Component {
                     placeholder={placeholder}
                     dateFormat="yyyy-MM-dd"
                     selected={input.value}
-                    //{input.value ? moment(input.value, 'YYYY-MM-DD') : null}
+                    disabled={shouldDisable}
                     onChange={this.handleChange}
                     onBlur={this.handleOnBlur}
                 />

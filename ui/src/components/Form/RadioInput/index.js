@@ -13,10 +13,13 @@ const Radio = styled.input``;
 
 class RadioInput extends React.Component {
     renderOption(option, label, index) {
+        let { shouldDisable } = this.props;
         let input = {
             name: label,
-            value: option
+            value: option,
+            disabled: shouldDisable
         };
+         
         return (
             <label key={index}>
                 <Field {...input} type="radio" component="input" name={label} value={option} />

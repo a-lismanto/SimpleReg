@@ -14,14 +14,19 @@ const ErrorContainer = styled.div`
 class TextInput extends React.Component {
 
     render() {
-        let {input, label, placeholder, type, meta} = this.props;
+        let {input, label, placeholder, type, meta, shouldDisable} = this.props;
         const hasError = meta && meta.touched && meta.error;
         
+        let inputParam = {
+            ...input,
+            disabled: shouldDisable
+        }
+
         return (
         <Container>
             <div><Label>{label}</Label></div>
             <StyledInput 
-                {...input}
+                {...inputParam}
                 autoComplete="off"
                 type={type}
                 placeholder={placeholder}
